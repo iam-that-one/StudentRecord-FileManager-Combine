@@ -1,6 +1,6 @@
 //
 //  MessageComposeView.swift
-//  StudentRecordNoCombine
+//  StudentsRecord-Combine
 //
 //  Created by Abdullah Alnutayfi on 18/07/2021.
 //
@@ -12,9 +12,9 @@ import SwiftUI
 
 struct MessageComposeView: UIViewControllerRepresentable {
     typealias Completion = (_ messageSent: Bool) -> Void
-
+    
     static var canSendText: Bool { MFMessageComposeViewController.canSendText() }
-        
+    
     let recipients: [String]?
     let body: String?
     let completion: Completion?
@@ -41,7 +41,7 @@ struct MessageComposeView: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
         private let completion: Completion?
-
+        
         public init(completion: Completion?) {
             self.completion = completion
         }

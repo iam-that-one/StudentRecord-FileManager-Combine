@@ -1,6 +1,6 @@
 //
 //  EmailView.swift
-//  StudentRecordNoCombine
+//  StudentsRecord-Combine
 //
 //  Created by Abdullah Alnutayfi on 18/07/2021.
 //

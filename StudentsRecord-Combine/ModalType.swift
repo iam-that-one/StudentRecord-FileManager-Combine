@@ -1,6 +1,6 @@
 //
 //  ModalType.swift
-//  StudentRecordNoCombine
+//  StudentsRecord-Combine
 //
 //  Created by Abdullah Alnutayfi on 17/07/2021.
 //
@@ -18,7 +18,7 @@ enum ModelType: Identifiable,View {
             return "new"
         case .update:
             return "update"
-        
+            
         }
     }
     var body: some View{
@@ -27,9 +27,9 @@ enum ModelType: Identifiable,View {
             return StudentFormView(SFVm: StudentFormViewModel())
         case .update(let student):
             return StudentFormView(SFVm: StudentFormViewModel(student: student))
-    
+            
         }
     }
     
-
+    
 }

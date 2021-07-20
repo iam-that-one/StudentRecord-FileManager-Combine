@@ -1,6 +1,6 @@
 //
 //  ViewModel.swift
-//  StudentRecordNoCombine
+//  StudentsRecord-Combine
 //
 //  Created by Abdullah Alnutayfi on 17/07/2021.
 //
@@ -11,15 +11,14 @@ import Combine
 class DataStoreViewModel: ObservableObject{
     
     var subsceiotins = Set<AnyCancellable>()
-    
     var addStudent = PassthroughSubject<Student,Never>()
     var updateStudent = PassthroughSubject<Student,Never>()
     var deleteStudent = PassthroughSubject<IndexSet,Never>()
     var loadStudents = Just(FileManager.docDirURL.appendingPathComponent(fileName))
     init() {
-       // loadStudents()
+        // loadStudents()
         addSbscription()
-   
+        
         for student in students.value{
             emailes.append(student.email)
         }
@@ -27,7 +26,7 @@ class DataStoreViewModel: ObservableObject{
         print(FileManager.docDirURL.path)
     }
     @Published var emailes = [String]()
-   // @Published var students = [Student]()
+    // @Published var students = [Student]()
     var students = CurrentValueSubject<[Student], Never>([])
     @Published var studentError : ErrorType? = nil
     func addSbscription(){
@@ -79,7 +78,7 @@ class DataStoreViewModel: ObservableObject{
                 self.objectWillChange.send()
             }
             .store(in: &subsceiotins)
-
+        
         
     }
     func studentSubscribtion(){
@@ -97,7 +96,7 @@ class DataStoreViewModel: ObservableObject{
                     print("student saved")
                 case .failure(let error):
                     if error is StudentError{
-                    studentError = ErrorType(error: error as! StudentError)
+                        studentError = ErrorType(error: error as! StudentError)
                     }else{
                         studentError = ErrorType(error: .encodingError)
                     }
@@ -107,5 +106,5 @@ class DataStoreViewModel: ObservableObject{
             }
             .store(in: &subsceiotins)
     }
-
+    
 }
